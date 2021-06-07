@@ -4,25 +4,19 @@ using System.Text;
 
 namespace Geometri_SOLID
 {
-    class Rektangel : Square
+    class Rektangel : Shape
     {
-        private double _sideB;
 
-        public double SideB
+        public Rektangel(double sideA, double sideB, string name) : base(sideA, name)
         {
-            get { return _sideB; }
-            set { _sideB = value; }
+            Name = name;
+            SideA = sideA;
+            SideB = sideB;
         }
 
-        public Rektangel(double sideA, double sideB) : base(sideA)
+        public override double calculatePerimeter() //Override allows us to override our method in the Shape class.
         {
-            this.SideA = sideA;
-            this._sideB = sideB;
-        }
-
-        public override double calculatePerimeter() //Override allows us to override our method in the Square class.
-        {
-            return (2 * SideA) + (2 * SideB);
+            return Math.Pow(SideA, 2) + Math.Pow(SideB, 2);
         }
 
         public override double calculateAreal()

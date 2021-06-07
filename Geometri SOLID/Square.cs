@@ -4,27 +4,20 @@ using System.Text;
 
 namespace Geometri_SOLID
 {
-    public class Square
+    public class Square : Shape
     {
-        private double _sideA;
-
-        public double SideA
+        public Square(double sideA, string name):base(sideA, name)
         {
-            get { return _sideA; }
-            set { _sideA = value; }
+            Name = name;
+            SideA = sideA;
         }
 
-        public Square(double sideA)
-        {
-            this._sideA = sideA;
-        }
-
-        public virtual double calculatePerimeter() //Virtual allows the method to be overwritten
+        public override double calculatePerimeter() //Override allows us to override our method in the Shape class.
         {
             return 4 * SideA;
         }
 
-        public virtual double calculateAreal()
+        public override double calculateAreal()
         {
             return SideA * SideA;
         }

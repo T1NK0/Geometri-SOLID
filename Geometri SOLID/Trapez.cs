@@ -4,42 +4,22 @@ using System.Text;
 
 namespace Geometri_SOLID
 {
-    class Trapez : Square
+    class Trapez : FourSidedShapes
     {
-        private double _sideB;
-        private double _sideC;
-        private double _sideD;
 
-        public double SideB
+        public Trapez(double sideA, double sideB, double sideC, double sideD, string name) : base(sideA, name)
         {
-            get { return _sideB; }
-            set { _sideB = value; }
-        }        
-
-        public double SideC
-        {
-            get { return _sideC; }
-            set { _sideC = value; }
-        }        
-
-        public double SideD
-        {
-            get { return _sideD; }
-            set { _sideD = value; }
-        }
-
-        public Trapez(double sideA, double sideB, double sideC, double sideD) : base(sideA)
-        {
-            this.SideA = sideA;
-            this._sideB = sideB;
-            this._sideC = sideC;
-            this._sideD = sideD;
+            Name = name;
+            SideA = sideA;
+            SideB = sideB;
+            SideC = sideC;
+            SideD = sideD;
         }
 
 
-        public override double calculatePerimeter() //Override allows us to override our method in the Square class.
+        public override double calculatePerimeter() //Override allows us to override our method in the Shape class.
         {
-            return 4 * SideA;
+            return SideA + SideB + SideC + SideD;
         }
 
         public override double calculateAreal()

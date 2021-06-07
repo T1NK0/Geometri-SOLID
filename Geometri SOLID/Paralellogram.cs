@@ -4,15 +4,8 @@ using System.Text;
 
 namespace Geometri_SOLID
 {
-    class Paralellogram : Square
+    class Paralellogram : Shape
     {
-        private double _sideB;
-
-        public double SideB
-        {
-            get { return _sideB; }
-            set { _sideB = value; }
-        }
 
         private double _angle;
 
@@ -23,17 +16,18 @@ namespace Geometri_SOLID
         }
 
 
-        public Paralellogram(double sideA, double sideB, double paralelAngle):base(sideA)
+        public Paralellogram(double sideA, double sideB, double paralelAngle, string name):base(sideA, name)
         {
-            this.SideA = sideA;
-            this._sideB = sideB;
-            this._angle = paralelAngle;
+            Name = name;
+            SideA = sideA;
+            SideB = sideB;
+            Angle = paralelAngle;
         }
 
 
-        public override double calculatePerimeter() //Override allows us to override our method in the Square class.
+        public override double calculatePerimeter() //Override allows us to override our method in the Shape class.
         {
-            return (2 * SideA) + (2 * _sideB);
+            return (2 * SideA) + (2 * SideB);
         }
 
         public override double calculateAreal()
